@@ -8,13 +8,16 @@ public final class Constants {
 	// If Student registration is successful
 	public static final String REGISTRATION_SUCCESS = "Your Registration is successful";
 
-	// If Student registration fails
-	public static final String REGISTRATION_FAIL = "Your Registration fails";
+	// If Student registration fails due to input data blank
+	public static final String REGISTRATION_FAIL = "Your Registration fails due to insufficient input";
+
+	// If Student registration fails due to input data blank
+	public static final String UPDATING_FAIL = "Updating student data fails due to insufficient input";
 
 	// If Student Deletion is successful
 	public static final String DELETION_SUCCESS = "The student data has been deleted";
 
-	// If Student Deletion fails due to no student with given id
-	public static final String DELETION_FAIL = "There is no student related to your search";
+	// If no student with given id
+	public static final String SEARCH_FAIL = "There is no student related to your search";
 
 }

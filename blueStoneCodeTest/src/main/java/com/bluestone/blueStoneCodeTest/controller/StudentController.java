@@ -58,13 +58,13 @@ public class StudentController {
 	public ResponseEntity<StudentDto> updateStudent(@PathVariable("id") Long id, @RequestBody StudentDto studentDto) {
 		if (Strings.isBlank(studentDto.getRollNo()) || Strings.isBlank(studentDto.getStudentClass())
 				|| Strings.isBlank(studentDto.getStudentName())) {
-			throw new RegistrationFailException(Constants.REGISTRATION_FAIL);
+			throw new RegistrationFailException(Constants.UPDATING_FAIL);
 		}
 		try {
 			StudentDto result = studentService.updateStudent(id, studentDto);
 			return new ResponseEntity<>(result, HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			throw new StudentNotFoundException(Constants.DELETION_FAIL);
+			throw new StudentNotFoundException(Constants.SEARCH_FAIL);
 		}
 
 	}
@@ -74,7 +74,7 @@ public class StudentController {
 		try {
 			studentService.deleteStudent(id);
 		} catch (NoSuchElementException e) {
-			throw new StudentNotFoundException(Constants.DELETION_FAIL);
+			throw new StudentNotFoundException(Constants.SEARCH_FAIL);
 		}
 		return new ResponseEntity<>(Constants.DELETION_SUCCESS, HttpStatus.OK);
 	}
